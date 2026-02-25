@@ -15,38 +15,37 @@ export default {
   // Links (displayed in order)
   links: [
     {
-      title: 'My Website',
-      url: 'https://example.com',
-      icon: 'globe',
-    },
-    {
       title: 'GitHub',
-      url: 'https://github.com',
+      url: 'https://github.com/travbrown',
       icon: 'github',
     },
     {
-      title: 'Read My Blog',
-      url: 'https://blog.example.com',
+      title: 'LinkedIn',
+      url: 'https://www.linkedin.com/in/xprsn/',
+      icon: 'linkedin',
+    },
+    {
+      title: 'Instagram',
+      url: 'https://www.instagram.com/travxtech/',
+      icon: 'instagram',
+    },
+    {
+      title: 'REBUILD-JA',
+      url: 'https://www.rebuild-ja.com/',
+      icon: 'globe',
+    },
+    {
+      title: 'My Art',
+      url: 'https://www.instagram.com/xprsn__/',
       icon: 'pencil',
-    },
-    {
-      title: 'Latest Project',
-      url: 'https://project.example.com',
-      icon: 'rocket',
-    },
-    {
-      title: 'Get In Touch',
-      url: 'mailto:hello@example.com',
-      icon: 'mail',
     },
   ],
 
-  // Social icons (displayed as a row below links)
+  // Social icons (displayed as a row above links)
   socials: [
-    { platform: 'twitter', url: 'https://twitter.com' },
-    { platform: 'instagram', url: 'https://instagram.com' },
-    { platform: 'linkedin', url: 'https://linkedin.com' },
-    { platform: 'youtube', url: 'https://youtube.com' },
+    { platform: 'github', url: 'https://github.com/travbrown' },
+    { platform: 'linkedin', url: 'https://www.linkedin.com/in/xprsn/' },
+    { platform: 'instagram', url: 'https://www.instagram.com/travxtech/' },
   ],
 
   // Theme
