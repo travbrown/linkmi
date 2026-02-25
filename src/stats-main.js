@@ -29,8 +29,8 @@ function render() {
   const viewsToday = pageViews.filter((v) => v.timestamp >= todayTs).length
   const clicksToday = linkClicks.filter((c) => c.timestamp >= todayTs).length
 
-  // Views last 7 days
-  const weekAgo = todayTs - 7 * 86400000
+  // Views last 7 days (today + 6 prior days)
+  const weekAgo = todayTs - 6 * 86400000
   const viewsWeek = pageViews.filter((v) => v.timestamp >= weekAgo).length
   const clicksWeek = linkClicks.filter((c) => c.timestamp >= weekAgo).length
 
@@ -61,11 +61,13 @@ function render() {
     </div>
   `
 
-  // --- Click breakdown by link ---
+  // --- Click breakdown by link (keyed by URL for accuracy) ---
   const clickCounts = {}
+  const urlToTitle = {}
   for (const c of linkClicks) {
-    const key = c.linkTitle || c.linkUrl
+    const key = c.linkUrl
     clickCounts[key] = (clickCounts[key] || 0) + 1
+    urlToTitle[key] = c.linkTitle || key
   }
 
   const sorted = Object.entries(clickCounts).sort((a, b) => b[1] - a[1])
@@ -77,10 +79,10 @@ function render() {
   } else {
     document.getElementById('clicks-table').innerHTML = sorted
       .map(
-        ([title, count]) => `
+        ([url, count]) => `
       <div class="stats-row">
         <div class="stats-row__bar" style="width: ${(count / maxClicks) * 100}%"></div>
-        <span class="stats-row__label">${title}</span>
+        <span class="stats-row__label">${urlToTitle[url]}</span>
         <span class="stats-row__value">${count}</span>
       </div>
     `
