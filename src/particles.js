@@ -1,14 +1,13 @@
 /**
- * Particle animation system
+ * Particle constellation system
  *
- * Renders gentle floating particles on a canvas behind the content.
- * Lightweight, GPU-friendly, and respects prefers-reduced-motion.
+ * Colorful, glowing particles with connection lines and mouse interaction.
+ * Respects prefers-reduced-motion.
  */
 export function initParticles() {
   const canvas = document.getElementById('particle-canvas')
   if (!canvas) return
 
-  // Respect reduced motion preference
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
     return
   }
@@ -16,6 +15,29 @@ export function initParticles() {
   const ctx = canvas.getContext('2d')
   let particles = []
   let width, height
+  let mouseX = -1000
+  let mouseY = -1000
+
+  const COLORS = [
+    { r: 0, g: 0, b: 0 },
+    { r: 40, g: 40, b: 40 },
+    { r: 60, g: 60, b: 60 },
+    { r: 20, g: 20, b: 20 },
+  ]
+
+  const MOUSE_RADIUS = 120
+  const CONNECTION_DIST = 130
+
+  // Track mouse globally (canvas has pointer-events: none)
+  document.addEventListener('mousemove', (e) => {
+    mouseX = e.clientX
+    mouseY = e.clientY
+  })
+
+  document.addEventListener('mouseleave', () => {
+    mouseX = -1000
+    mouseY = -1000
+  })
 
   function resize() {
     width = canvas.width = window.innerWidth
@@ -24,46 +46,80 @@ export function initParticles() {
   }
 
   function createParticles() {
-    // Scale particle count to screen size, capped for performance
     const area = width * height
-    const count = Math.min(Math.floor(area / 18000), 70)
+    const count = Math.min(Math.floor(area / 25000), 50)
 
-    particles = Array.from({ length: count }, () => ({
-      x: Math.random() * width,
-      y: Math.random() * height,
-      radius: Math.random() * 1.5 + 0.5,
-      opacity: Math.random() * 0.05 + 0.02,
-      vx: (Math.random() - 0.5) * 0.25,
-      vy: (Math.random() - 0.5) * 0.25,
-      // Gentle oscillation parameters
-      phase: Math.random() * Math.PI * 2,
-      phaseSpeed: Math.random() * 0.003 + 0.001,
-      amplitude: Math.random() * 0.15 + 0.05,
-    }))
+    particles = Array.from({ length: count }, () => {
+      const color = COLORS[Math.floor(Math.random() * COLORS.length)]
+      return {
+        x: Math.random() * width,
+        y: Math.random() * height,
+        radius: Math.random() * 2 + 1,
+        color,
+        opacity: Math.random() * 0.4 + 0.15,
+        vx: (Math.random() - 0.5) * 0.4,
+        vy: (Math.random() - 0.5) * 0.4,
+        phase: Math.random() * Math.PI * 2,
+        phaseSpeed: Math.random() * 0.005 + 0.002,
+        amplitude: Math.random() * 0.2 + 0.08,
+      }
+    })
   }
 
   function animate() {
     ctx.clearRect(0, 0, width, height)
 
+    // Update and draw particles
     for (const p of particles) {
-      // Update oscillation
       p.phase += p.phaseSpeed
 
-      // Move with drift + gentle sine wave
+      // Base drift + gentle oscillation
       p.x += p.vx + Math.sin(p.phase) * p.amplitude
       p.y += p.vy + Math.cos(p.phase * 0.7) * p.amplitude
 
-      // Wrap around edges with padding
+      // Mouse repulsion
+      const dx = p.x - mouseX
+      const dy = p.y - mouseY
+      const dist = Math.sqrt(dx * dx + dy * dy)
+      if (dist < MOUSE_RADIUS && dist > 0) {
+        const force = (MOUSE_RADIUS - dist) / MOUSE_RADIUS
+        p.x += (dx / dist) * force * 2.5
+        p.y += (dy / dist) * force * 2.5
+      }
+
+      // Wrap edges
       if (p.x < -20) p.x = width + 20
       if (p.x > width + 20) p.x = -20
       if (p.y < -20) p.y = height + 20
       if (p.y > height + 20) p.y = -20
 
-      // Draw particle
+      // Draw with glow
+      ctx.save()
+      ctx.shadowBlur = 8
+      ctx.shadowColor = `rgba(${p.color.r}, ${p.color.g}, ${p.color.b}, ${p.opacity * 0.5})`
       ctx.beginPath()
       ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2)
-      ctx.fillStyle = `rgba(0, 0, 0, ${p.opacity})`
+      ctx.fillStyle = `rgba(${p.color.r}, ${p.color.g}, ${p.color.b}, ${p.opacity})`
       ctx.fill()
+      ctx.restore()
+    }
+
+    // Draw constellation connections
+    for (let i = 0; i < particles.length; i++) {
+      for (let j = i + 1; j < particles.length; j++) {
+        const dx = particles[i].x - particles[j].x
+        const dy = particles[i].y - particles[j].y
+        const dist = Math.sqrt(dx * dx + dy * dy)
+        if (dist < CONNECTION_DIST) {
+          const opacity = (1 - dist / CONNECTION_DIST) * 0.12
+          ctx.beginPath()
+          ctx.moveTo(particles[i].x, particles[i].y)
+          ctx.lineTo(particles[j].x, particles[j].y)
+          ctx.strokeStyle = `rgba(0, 0, 0, ${opacity})`
+          ctx.lineWidth = 0.5
+          ctx.stroke()
+        }
+      }
     }
 
     requestAnimationFrame(animate)
@@ -72,7 +128,6 @@ export function initParticles() {
   resize()
   animate()
 
-  // Debounced resize handler
   let resizeTimeout
   window.addEventListener('resize', () => {
     clearTimeout(resizeTimeout)

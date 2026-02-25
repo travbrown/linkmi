@@ -51,15 +51,13 @@ export default {
 
   // Theme
   theme: {
-    background: '#fafafa',
-    cardBackground: '#ffffff',
+    background: '#f5f5f3',
+    cardBackground: 'rgba(255, 255, 255, 0.7)',
     textColor: '#0a0a0a',
-    textSecondary: '#737373',
+    textSecondary: 'rgba(0, 0, 0, 0.45)',
     borderColor: 'rgba(0, 0, 0, 0.06)',
-    hoverBackground: '#f0f0f0',
-    accentColor: '#0a0a0a',
-    fontFamily:
-      "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
+    accentColor: 'rgba(0, 0, 0, 0.8)',
+    fontFamily: "'Outfit', sans-serif",
   },
 
   // Analytics
