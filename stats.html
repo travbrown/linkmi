@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Linkmi — Analytics</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script type="module" src="/src/stats-main.js"></script>
+  </head>
+  <body>
+    <div class="stats-app">
+      <header class="stats-header">
+        <div class="stats-header__left">
+          <a href="/" class="stats-back">&larr; Back to page</a>
+          <h1 class="stats-title">Analytics</h1>
+          <p class="stats-subtitle">
+            Tracking data stored locally in your browser.
+          </p>
+        </div>
+        <button class="stats-clear" id="clear-btn">Clear data</button>
+      </header>
+
+      <!-- Summary cards -->
+      <section class="stats-summary" id="summary"></section>
+
+      <!-- Click breakdown -->
+      <section class="stats-section">
+        <h2 class="stats-section__title">Link Clicks</h2>
+        <div class="stats-table" id="clicks-table"></div>
+      </section>
+
+      <!-- Recent activity -->
+      <section class="stats-section">
+        <h2 class="stats-section__title">Recent Activity</h2>
+        <div class="stats-feed" id="activity-feed"></div>
+      </section>
+
+      <!-- Referrers -->
+      <section class="stats-section">
+        <h2 class="stats-section__title">Top Referrers</h2>
+        <div class="stats-table" id="referrers-table"></div>
+      </section>
+    </div>
+  </body>
+</html>
