@@ -87,11 +87,11 @@ export function initParticles() {
         p.y += (dy / dist) * force * 2.5
       }
 
-      // Wrap edges
-      if (p.x < -20) p.x = width + 20
-      if (p.x > width + 20) p.x = -20
-      if (p.y < -20) p.y = height + 20
-      if (p.y > height + 20) p.y = -20
+      // Wrap edges seamlessly
+      if (p.x < 0) p.x += width
+      else if (p.x > width) p.x -= width
+      if (p.y < 0) p.y += height
+      else if (p.y > height) p.y -= height
 
       // Draw with glow
       ctx.save()
