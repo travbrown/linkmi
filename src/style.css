@@ -420,7 +420,7 @@ body {
   width: 44px;
   height: 44px;
   border-radius: 50%;
-  color: var(--text-secondary);
+  color: rgba(255, 255, 255, 0.7);
   text-decoration: none;
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   opacity: 0;
@@ -428,8 +428,8 @@ body {
 }
 
 .social-icon:hover {
-  color: var(--text);
-  background: rgba(255, 255, 255, 0.06);
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.1);
   transform: translateY(-3px);
   box-shadow: 0 4px 20px var(--glow);
 }
