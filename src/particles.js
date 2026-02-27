@@ -26,7 +26,7 @@ export function initParticles() {
   ]
 
   const MOUSE_RADIUS = 120
-  const CONNECTION_DIST = 130
+  const CONNECTION_DIST = 50
 
   // Track mouse globally (canvas has pointer-events: none)
   document.addEventListener('mousemove', (e) => {
@@ -47,7 +47,7 @@ export function initParticles() {
 
   function createParticles() {
     const area = width * height
-    const count = Math.min(Math.floor(area / 12000), 120)
+    const count = Math.min(Math.floor(area / 400), 3600)
 
     particles = Array.from({ length: count }, () => {
       const color = COLORS[Math.floor(Math.random() * COLORS.length)]
@@ -95,7 +95,7 @@ export function initParticles() {
 
       // Draw with glow
       ctx.save()
-      ctx.shadowBlur = 8
+      ctx.shadowBlur = 3
       ctx.shadowColor = `rgba(${p.color.r}, ${p.color.g}, ${p.color.b}, ${p.opacity * 0.5})`
       ctx.beginPath()
       ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2)
