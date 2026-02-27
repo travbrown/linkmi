@@ -47,7 +47,7 @@ export function initParticles() {
 
   function createParticles() {
     const area = width * height
-    const count = Math.min(Math.floor(area / 400), 3600)
+    const count = Math.min(Math.floor(area / 800), 1800)
 
     particles = Array.from({ length: count }, () => {
       const color = COLORS[Math.floor(Math.random() * COLORS.length)]
