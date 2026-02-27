@@ -15,21 +15,6 @@ export default {
   // Links (displayed in order)
   links: [
     {
-      title: 'GitHub',
-      url: 'https://github.com/travbrown',
-      icon: 'github',
-    },
-    {
-      title: 'LinkedIn',
-      url: 'https://www.linkedin.com/in/xprsn/',
-      icon: 'linkedin',
-    },
-    {
-      title: 'Instagram',
-      url: 'https://www.instagram.com/travxtech/',
-      icon: 'instagram',
-    },
-    {
       title: 'REBUILD-JA',
       url: 'https://www.rebuild-ja.com/',
       icon: 'globe',
