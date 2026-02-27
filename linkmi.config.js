@@ -20,7 +20,7 @@ export default {
       icon: 'globe',
     },
     {
-      title: 'My Art',
+      title: 'Art',
       url: 'https://www.instagram.com/xprsn__/',
       icon: 'pencil',
     },
