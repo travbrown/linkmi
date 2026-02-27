@@ -25,3 +25,4 @@ Thumbs.db
 
 # Analytics data (local)
 analytics/data/
+.vercel

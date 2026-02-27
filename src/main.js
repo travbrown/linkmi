@@ -2,7 +2,7 @@ import './style.css'
 import config from '../linkmi.config.js'
 import { getIcon, getSocialIcon } from './icons.js'
 import { initParticles } from './particles.js'
-import { initAnalytics, trackClick } from './analytics.js'
+import { inject } from '@vercel/analytics'
 
 // --- Theme ---
 
@@ -84,13 +84,6 @@ function renderLinks(links) {
     )
     .join('')
 
-  // Click tracking
-  el.querySelectorAll('.link-card').forEach((card) => {
-    card.addEventListener('click', () => {
-      const idx = parseInt(card.dataset.index, 10)
-      trackClick(links[idx])
-    })
-  })
 }
 
 // --- Socials ---
@@ -166,10 +159,7 @@ function init() {
   renderSocials(config.socials)
   initParticles()
   initCardInteractions()
-
-  if (config.analytics?.enabled) {
-    initAnalytics(config.analytics)
-  }
+  inject()
 }
 
 if (document.readyState === 'loading') {

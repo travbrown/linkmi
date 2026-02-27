@@ -24,6 +24,11 @@ export default {
       url: 'https://www.instagram.com/xprsn__/',
       icon: 'pencil',
     },
+    {
+      title: 'Executive Rentals',
+      url: 'https://www.instagram.com/serenehaven.ja/',
+      icon: 'link',
+    },
   ],
 
   // Social icons (displayed as a row above links)
@@ -42,13 +47,6 @@ export default {
     borderColor: 'rgba(0, 0, 0, 0.06)',
     accentColor: 'rgba(0, 0, 0, 0.8)',
     fontFamily: "'Outfit', sans-serif",
-  },
-
-  // Analytics
-  analytics: {
-    enabled: true,
-    // Set a serverless endpoint for production analytics:
-    // endpoint: '/api/track',
   },
 
   // SEO
