@@ -12,18 +12,18 @@
 }
 
 :root {
-  --bg: #f5f5f3;
-  --surface: rgba(255, 255, 255, 0.7);
-  --surface-hover: rgba(255, 255, 255, 0.9);
-  --border: rgba(0, 0, 0, 0.06);
-  --border-hover: rgba(0, 0, 0, 0.12);
-  --text: #0a0a0a;
-  --text-secondary: rgba(0, 0, 0, 0.45);
-  --accent-1: rgba(0, 0, 0, 0.8);
-  --accent-2: rgba(0, 0, 0, 0.5);
-  --accent-3: rgba(0, 0, 0, 0.65);
-  --accent-4: rgba(0, 0, 0, 0.4);
-  --glow: rgba(0, 0, 0, 0.06);
+  --bg: #0a0a0a;
+  --surface: rgba(255, 255, 255, 0.07);
+  --surface-hover: rgba(255, 255, 255, 0.12);
+  --border: rgba(255, 255, 255, 0.08);
+  --border-hover: rgba(255, 255, 255, 0.16);
+  --text: #f5f5f3;
+  --text-secondary: rgba(255, 255, 255, 0.5);
+  --accent-1: rgba(255, 255, 255, 0.8);
+  --accent-2: rgba(255, 255, 255, 0.5);
+  --accent-3: rgba(255, 255, 255, 0.65);
+  --accent-4: rgba(255, 255, 255, 0.4);
+  --glow: rgba(255, 255, 255, 0.08);
   --font-display: 'Syne', sans-serif;
   --font-body: 'Outfit', sans-serif;
 }
@@ -207,11 +207,11 @@ body {
   border-radius: 50%;
   background: conic-gradient(
     from 0deg,
-    rgba(0, 0, 0, 0.7),
-    rgba(0, 0, 0, 0.1),
-    rgba(0, 0, 0, 0.7),
-    rgba(0, 0, 0, 0.1),
-    rgba(0, 0, 0, 0.7)
+    rgba(255, 255, 255, 0.7),
+    rgba(255, 255, 255, 0.1),
+    rgba(255, 255, 255, 0.7),
+    rgba(255, 255, 255, 0.1),
+    rgba(255, 255, 255, 0.7)
   );
   animation: ring-spin 8s linear infinite;
   opacity: 0.8;
@@ -234,7 +234,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.65));
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.65));
   z-index: 1;
 }
 
@@ -261,7 +261,7 @@ body {
   background: linear-gradient(
     135deg,
     var(--text) 0%,
-    rgba(0, 0, 0, 0.35) 50%,
+    rgba(255, 255, 255, 0.35) 50%,
     var(--text) 100%
   );
   background-size: 200% auto;
@@ -315,7 +315,7 @@ body {
   border-radius: inherit;
   background: radial-gradient(
     250px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
-    rgba(0, 0, 0, 0.04),
+    rgba(255, 255, 255, 0.06),
     transparent 60%
   );
   opacity: 0;
@@ -331,8 +331,8 @@ body {
 .link-card:hover {
   border-color: var(--border-hover);
   box-shadow:
-    0 4px 24px rgba(0, 0, 0, 0.06),
-    0 0 60px rgba(0, 0, 0, 0.03);
+    0 4px 24px rgba(255, 255, 255, 0.06),
+    0 0 60px rgba(255, 255, 255, 0.03);
 }
 
 .link-card.tilt-enabled {
@@ -429,7 +429,7 @@ body {
 
 .social-icon:hover {
   color: var(--text);
-  background: rgba(0, 0, 0, 0.04);
+  background: rgba(255, 255, 255, 0.06);
   transform: translateY(-3px);
   box-shadow: 0 4px 20px var(--glow);
 }

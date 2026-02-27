@@ -19,10 +19,10 @@ export function initParticles() {
   let mouseY = -1000
 
   const COLORS = [
-    { r: 0, g: 0, b: 0 },
-    { r: 40, g: 40, b: 40 },
-    { r: 60, g: 60, b: 60 },
-    { r: 20, g: 20, b: 20 },
+    { r: 255, g: 255, b: 255 },
+    { r: 220, g: 220, b: 220 },
+    { r: 200, g: 200, b: 200 },
+    { r: 240, g: 240, b: 240 },
   ]
 
   const MOUSE_RADIUS = 120
@@ -115,7 +115,7 @@ export function initParticles() {
           ctx.beginPath()
           ctx.moveTo(particles[i].x, particles[i].y)
           ctx.lineTo(particles[j].x, particles[j].y)
-          ctx.strokeStyle = `rgba(0, 0, 0, ${opacity})`
+          ctx.strokeStyle = `rgba(255, 255, 255, ${opacity})`
           ctx.lineWidth = 0.5
           ctx.stroke()
         }

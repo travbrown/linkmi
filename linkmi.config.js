@@ -20,9 +20,14 @@ export default {
       icon: 'globe',
     },
     {
-      title: 'Art',
+      title: 'Art IG',
       url: 'https://www.instagram.com/xprsn__/',
       icon: 'pencil',
+    },
+    {
+      title: 'Artistic Portfolio',
+      url: 'https://xprsv.vercel.app/',
+      icon: 'star',
     },
     {
       title: 'Executive Rentals',
@@ -40,12 +45,12 @@ export default {
 
   // Theme
   theme: {
-    background: '#f5f5f3',
-    cardBackground: 'rgba(255, 255, 255, 0.7)',
-    textColor: '#0a0a0a',
-    textSecondary: 'rgba(0, 0, 0, 0.45)',
-    borderColor: 'rgba(0, 0, 0, 0.06)',
-    accentColor: 'rgba(0, 0, 0, 0.8)',
+    background: '#0a0a0a',
+    cardBackground: 'rgba(255, 255, 255, 0.07)',
+    textColor: '#f5f5f3',
+    textSecondary: 'rgba(255, 255, 255, 0.5)',
+    borderColor: 'rgba(255, 255, 255, 0.08)',
+    accentColor: 'rgba(255, 255, 255, 0.8)',
     fontFamily: "'Outfit', sans-serif",
   },
 
