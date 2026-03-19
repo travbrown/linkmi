@@ -15,7 +15,7 @@ export default {
   // Links (displayed in order)
   links: [
     {
-      title: 'Expressive Ventures',
+      title: 'Book A Call',
       url: 'https://expressive-ventures-il1jqyh.gamma.site/',
       icon: 'globe',
     },
