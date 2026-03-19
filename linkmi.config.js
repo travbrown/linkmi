@@ -15,8 +15,8 @@ export default {
   // Links (displayed in order)
   links: [
     {
-      title: 'My Website',
-      url: 'https://example.com',
+      title: 'Expressive Ventures',
+      url: 'https://expressive-ventures-il1jqyh.gamma.site/',
       icon: 'globe',
     },
     {
