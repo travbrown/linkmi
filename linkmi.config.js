@@ -15,6 +15,11 @@ export default {
   // Links (displayed in order)
   links: [
     {
+      title: 'Technical Portfolio',
+      url: 'https://travis-brown.vercel.app',
+      icon: 'code',
+    },
+    {
       title: 'REBUILD-JA',
       url: 'https://www.rebuild-ja.com/',
       icon: 'globe',
